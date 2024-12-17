@@ -28,7 +28,7 @@ p {
 
 #game {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Используем auto-fit вместо auto-fill */
+    grid-template-columns: repeat(4, 150px);
     gap: 35px;
     margin-bottom: 70px;
 }
@@ -160,7 +160,7 @@ p {
 }
 
 /* Адаптация под мобильные устройства */
-@media only screen and (max-width: 1024px) {
+@media only screen and (max-width: 768px) {
     body {
         height: auto;
         min-height: 100vh;
@@ -168,44 +168,7 @@ p {
     }
     
     h1 {
-        font-size: 56px;
-    }
-    
-    p {
-        font-size: 20px;
-    }
-    
-    #game {
-        grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
-        gap: 30px;
-        margin-top: 80px;
-    }
-    
-    .card {
-        width: 130px;
-        height: 130px;
-    }
-    
-    .front, .back {
-        font-size: 46px;
-    }
-    
-    #next-level-button {
-        margin-bottom: 40px;
-        padding: 17px 34px;
-        font-size: 26px;
-    }
-}
-
-@media only screen and (max-width: 767px) {
-    body {
-        height: auto;
-        min-height: 100vh;
-        justify-content: flex-start;
-    }
-    
-    h1 {
-        font-size: 44px;
+        font-size: 48px;
     }
     
     p {
@@ -213,60 +176,23 @@ p {
     }
     
     #game {
-        grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
         gap: 25px;
-        margin-top: 60px;
+        margin-top: 80px;
     }
     
     .card {
-        width: 110px;
-        height: 110px;
+        width: 120px;
+        height: 120px;
     }
     
     .front, .back {
-        font-size: 38px;
+        font-size: 42px;
     }
     
     #next-level-button {
         margin-bottom: 30px;
-        padding: 14px 29px;
-        font-size: 23px;
-    }
-}
-
-@media only screen and (max-width: 480px) {
-    body {
-        height: auto;
-        min-height: 100vh;
-        justify-content: flex-start;
-    }
-    
-    h1 {
-        font-size: 36px;
-    }
-    
-    p {
-        font-size: 16px;
-    }
-    
-    #game {
-        grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
-        gap: 20px;
-        margin-top: 40px;
-    }
-    
-    .card {
-        width: 90px;
-        height: 90px;
-    }
-    
-    .front, .back {
-        font-size: 32px;
-    }
-    
-    #next-level-button {
-        margin-bottom: 20px;
-        padding: 11px 23px;
-        font-size: 19px;
+        padding: 15px 30px;
+        font-size: 22px;
     }
 }
