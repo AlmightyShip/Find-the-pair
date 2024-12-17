@@ -7,7 +7,7 @@ body {
     background: url(images/clouds.png) no-repeat center center;
     background-size: cover;
     height: auto; /* Убираем фиксированную высоту */
-    min-height: 100vh; /* Минимальная высота для заполнения экрана */
+    min-height: 1vh; /* Минимальная высота для заполнения экрана */
     justify-content: flex-start; /* Выравнивание по верхнему краю */
     margin: 0;
     overflow: hidden;
