@@ -6,9 +6,6 @@ body {
     align-items: center;
     background: url(images/clouds.png) no-repeat center center;
     background-size: cover;
-    height: auto; /* Убираем фиксированную высоту */
-    min-height: 1vh; /* Минимальная высота для заполнения экрана */
-    justify-content: flex-start; /* Выравнивание по верхнему краю */
     margin: 0;
     overflow: hidden;
     position: relative;
@@ -30,17 +27,15 @@ p {
 #game {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(90px, 1fr)); /* Адаптивные карточки */
-    gap: 20px; /* Уменьшаем отступ между карточками */
-    margin-top: 40px; /* Отступ сверху */
+ /* Уменьшаем отступ между карточками */
+/* Отступ сверху */
 }
 
 .card {
-    width: 90px; /* Ширина карточки */
+    width: 40px; /* Ширина карточки */
     height: 90px; /* Высота карточки */
-    perspective: 1000px;
     cursor: pointer;
     box-shadow: 0 4px 8px rgba(200, 200, 200, 0.45);
-    border-radius: 20px;
     transition: transform 0.2s ease-in-out;
 }
 
