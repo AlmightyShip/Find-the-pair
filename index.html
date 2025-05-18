@@ -1,0 +1,1069 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Кысыл-Сырская СОШ - Официальный сайт</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=PT+Sans:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Общие стили */
+        :root {
+            --light-color: #FFFFFF;
+            --dark-color: #333333;
+            --gray-color: #F5F5F5;
+            --primary-color: #003366;
+            --secondary-color: #004080;
+            --accent-color: #4facfe;
+            --transition: all 0.3s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: var(--dark-color);
+            background-color: var(--gray-color);
+            overflow-x: hidden;
+        }
+        
+        a {
+            text-decoration: none;
+            color: var(--secondary-color);
+            transition: var(--transition);
+        }
+        
+        a:hover {
+            color: var(--primary-color);
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        /* Шапка */
+        header {
+            background-color: rgba(0, 51, 102, 0.95);
+            color: var(--light-color);
+            padding: 12px 0;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            transition: var(--transition);
+        }
+        
+        header.scrolled {
+            padding: 8px 0;
+            background-color: rgba(0, 51, 102, 0.98);
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            z-index: 1001;
+        }
+        
+        .logo img {
+            height: 60px;
+            width: auto;
+            transition: var(--transition);
+        }
+        
+        .logo-text h1 {
+            font-family: 'PT Sans', sans-serif;
+            font-size: 1.3rem;
+            margin-bottom: 5px;
+            color: white;
+        }
+        
+        .logo-text p {
+            font-size: 0.8rem;
+            opacity: 0.9;
+            color: rgba(255, 255, 255, 0.8);
+        }
+        
+        /* Навигация */
+        nav ul {
+            display: flex;
+            list-style: none;
+            align-items: center;
+            margin: 0;
+            padding: 0;
+        }
+        
+        nav ul li {
+            margin-left: 20px;
+            position: relative;
+        }
+    
+        nav ul li a {
+            color: var(--light-color);
+            font-weight: 500;
+            padding: 8px 0;
+            display: flex;
+            align-items: center;
+            position: relative;
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+        
+        nav ul li a:hover {
+            opacity: 1;
+            color: var(--light-color); /* Фиксируем цвет при наведении */
+        }
+        
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--light-color);
+            transition: var(--transition);
+        }
+    
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+        
+        nav ul li a i {
+            margin-right: 6px;
+            font-size: 1rem;
+        }
+    
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--light-color);
+            font-size: 1.5rem;
+            cursor: pointer;
+            z-index: 1001;
+            transition: var(--transition);
+            padding: 5px;
+        }
+        
+        .mobile-menu-btn:hover {
+            opacity: 0.8;
+        }
+    
+        /* Основной контент */
+        main {
+            padding: 20px 0;
+            min-height: calc(100vh - 160px);
+            margin-top: 84px;
+        }
+        
+        /* Стили для слайдера */
+        .slider-container {
+            position: relative;
+            width: 100%;
+            height: 450px;
+            overflow: hidden;
+            margin-bottom: 30px;
+            border-radius: 5px;
+        }
+    
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            opacity: 0;
+            transition: opacity 0.8s ease-in-out;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+        }
+        
+        .slide.active {
+            opacity: 1;
+        }
+        
+        .slide .container {
+            max-width: 800px;
+            padding: 20px;
+        }
+        
+        .slide h2 {
+            font-size: 2rem;
+            margin-bottom: 15px;
+            font-family: 'PT Sans', sans-serif;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .slide p {
+            font-size: 1.1rem;
+            margin: 0 auto 25px;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+        }
+        
+        .slider-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.3);
+            color: white;
+            border: none;
+            padding: 12px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            border-radius: 50%;
+            transition: var(--transition);
+            z-index: 10;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .slider-btn:hover {
+            background: rgba(255, 255, 255, 0.5);
+        }
+        
+        .prev-btn {
+            left: 15px;
+        }
+        
+        .next-btn {
+            right: 15px;
+        }
+        
+        .slider-indicators {
+            position: absolute;
+            bottom: 15px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 8px;
+            z-index: 10;
+        }
+        
+        .indicator {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .indicator.active {
+            background: white;
+            transform: scale(1.2);
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: var(--light-color);
+            padding: 10px 25px;
+            border-radius: 5px;
+            font-weight: 500;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-2px);
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+        }
+        
+        /* Секции */
+        .section-title {
+            font-family: 'PT Sans', sans-serif;
+            color: var(--secondary-color);
+            margin-bottom: 20px;
+            font-size: 1.6rem;
+            text-align: center;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background-color: var(--primary-color);
+        }
+        
+        .news-section {
+            margin-bottom: 40px;
+        }
+        
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+        }
+        
+        .news-card {
+            background-color: var(--light-color);
+            border-radius: 5px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            transition: var(--transition);
+        }
+        
+        .news-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+        }
+        
+        .news-img {
+            height: 180px;
+            overflow: hidden;
+        }
+        
+        .news-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .news-card:hover .news-img img {
+            transform: scale(1.05);
+        }
+        
+        .news-content {
+            padding: 15px;
+        }
+        
+        .news-date {
+            color: #777;
+            font-size: 0.85rem;
+            margin-bottom: 8px;
+        }
+        
+        .news-title {
+            font-family: 'PT Sans', sans-serif;
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+        
+        .news-excerpt {
+            margin-bottom: 15px;
+            color: #555;
+            font-size: 0.9rem;
+        }
+        
+        .about-section {
+            padding: 30px 0;
+        }
+        
+        .about-section p {
+            margin-bottom: 15px;
+        }
+        
+        .about-section h3 {
+            font-family: 'PT Sans', sans-serif;
+            color: var(--secondary-color);
+            margin: 20px 0 10px;
+            font-size: 1.3rem;
+        }
+        
+        .about-section ul {
+            margin-left: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .about-section li {
+            margin-bottom: 8px;
+        }
+        
+        /* Подвал */
+        footer {
+            background: linear-gradient(135deg, #002244 0%, #003366 100%);
+            color: var(--light-color);
+            padding: 50px 0 20px;
+            position: relative;
+        }
+    
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, #4facfe 0%, #00f2fe 100%);
+        }
+    
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+    
+        .footer-column {
+            position: relative;
+            z-index: 1;
+        }
+    
+        .footer-column h3 {
+            font-family: 'PT Sans', sans-serif;
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            position: relative;
+            display: inline-block;
+            color: white;
+        }
+    
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background: linear-gradient(90deg, #4facfe 0%, #00f2fe 100%);
+        }
+    
+        .footer-column ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+    
+        .footer-column ul li {
+            margin-bottom: 10px;
+            position: relative;
+            padding-left: 12px;
+        }
+    
+        .footer-column ul li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: #4facfe;
+            font-size: 1rem;
+            line-height: 1;
+        }
+    
+        .footer-column ul li a {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.9rem;
+            transition: var(--transition);
+            display: inline-block;
+            padding: 2px 0;
+        }
+    
+        .footer-column ul li a:hover {
+            color: white;
+            transform: translateX(3px);
+        }
+    
+        .contact-info p {
+            margin-bottom: 12px;
+            display: flex;
+            align-items: flex-start;
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+    
+        .contact-info i {
+            margin-right: 10px;
+            font-size: 1rem;
+            color: #4facfe;
+            min-width: 18px;
+            text-align: center;
+            margin-top: 2px;
+        }
+    
+        .social-links {
+            display: flex;
+            gap: 12px;
+            margin-top: 20px;
+        }
+    
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            transition: var(--transition);
+            font-size: 1rem;
+            position: relative;
+            overflow: hidden;
+        }
+    
+        .social-links a::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            opacity: 0;
+            transition: var(--transition);
+        }
+    
+        .social-links a:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+        }
+    
+        .social-links a:hover::before {
+            opacity: 1;
+        }
+    
+        .social-links a i {
+            position: relative;
+            z-index: 1;
+        }
+    
+        .copyright {
+            text-align: center;
+            padding-top: 25px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.6);
+        }
+    
+        /* Анимации */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-15px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    
+        /* Адаптивность */
+        @media (max-width: 992px) {
+            .header-container {
+                flex-direction: row;
+                text-align: left;
+            }
+            
+            .logo {
+                margin-bottom: 0;
+                justify-content: flex-start;
+            }
+    
+            .logo img {
+                height: 50px;
+            }
+    
+            .logo-text h1 {
+                font-size: 1.2rem;
+            }
+            
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: flex-end;
+            }
+            
+            nav ul li {
+                margin-left: 15px;
+            }
+            
+            .slide h2 {
+                font-size: 1.8rem;
+            }
+            
+            .slide p {
+                font-size: 1rem;
+            }
+            
+            .slider-container {
+                height: 400px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            nav {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 260px;
+                height: 100vh;
+                background: rgba(0, 51, 102, 0.98);
+                backdrop-filter: blur(10px);
+                -webkit-backdrop-filter: blur(10px);
+                padding: 80px 20px 20px;
+                transition: var(--transition);
+                box-shadow: -3px 0 10px rgba(0, 0, 0, 0.1);
+                z-index: 1000;
+            }
+            
+            nav.active {
+                right: 0;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            nav ul li {
+                margin: 0 0 20px;
+                width: 100%;
+            }
+    
+            nav ul li a {
+                padding: 8px 0;
+                font-size: 1rem;
+            }
+            
+            .slider-container {
+                height: 350px;
+            }
+            
+            .slide h2 {
+                font-size: 1.6rem;
+            }
+            
+            .slide p {
+                font-size: 0.95rem;
+            }
+    
+            .logo img {
+                height: 45px;
+            }
+            
+            .news-grid {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .logo {
+                flex-direction: row;
+            }
+            
+            .logo img {
+                height: 40px;
+            }
+    
+            .logo-text h1 {
+                font-size: 1.1rem;
+            }
+    
+            nav {
+                width: 100%;
+            }
+            
+            .section-title {
+                font-size: 1.4rem;
+            }
+            
+            .slider-container {
+                height: 300px;
+            }
+            
+            .slide h2 {
+                font-size: 1.4rem;
+                margin-bottom: 10px;
+            }
+            
+            .slide p {
+                font-size: 0.9rem;
+                margin-bottom: 15px;
+            }
+            
+            .btn {
+                padding: 8px 20px;
+                font-size: 0.9rem;
+            }
+            
+            .news-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            main {
+                margin-top: 76px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Шапка сайта -->
+    <header id="main-header">
+        <div class="container header-container">
+            <div class="logo">
+                <img src="img/logo.png" alt="Логотип Кысыл Сырской СОШ">
+                <div class="logo-text">
+                    <h1>Кысыл-Сырская СОШ</h1>
+                    <p>Официальный сайт образовательного учреждения</p>
+                </div>
+            </div>
+            
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <nav id="main-nav">
+                <ul>
+                    <li><a href="index.html"><i class="fas fa-home"></i> Главная</a></li>
+                    <li><a href="educational.html"><i class="fas fa-info-circle"></i> Учебное заведение</a></li>
+                    <li><a href="education.html"><i class="fas fa-book"></i> Учебный процесс</a></li>
+                    <li><a href="parents.html"><i class="fas fa-user-friends"></i> Для родителей</a></li>
+                    <li><a href="students.html"><i class="fas fa-graduation-cap"></i> Для учеников</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <!-- Основное содержимое -->
+    <main style="margin-top: 100px;">
+        <section id="home" class="slider-container">
+            <!-- Слайды -->
+            <div class="slide active" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('img/slide/slide1.png');">
+                <div class="container">
+                    <h2>Добро пожаловать в Кысыл Сырскую СОШ!</h2>
+                    <p>Мы стремимся создать благоприятную среду для обучения и развития каждого ученика.</p>
+                    
+                </div>
+            </div>
+            
+            <div class="slide" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('img/slide/slide2.png');">
+                <div class="container">
+                    <h2>Современные образовательные технологии</h2>
+                    <p>Используем инновационные подходы в обучении для лучшего усвоения знаний.</p>
+                   
+                </div>
+            </div>
+            
+            <div class="slide" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('img//slide/slide3.png');">
+                <div class="container">
+                    <h2>Развитие талантов</h2>
+                    <p>Множество кружков и секций для всестороннего развития учащихся.</p>
+                   
+                </div>
+            </div>
+            
+            <!-- Кнопки навигации -->
+            <button class="slider-btn prev-btn">&lt;</button>
+            <button class="slider-btn next-btn">&gt;</button>
+            
+            <!-- Индикаторы слайдов -->
+            <div class="slider-indicators">
+                <span class="indicator active"></span>
+                <span class="indicator"></span>
+                <span class="indicator"></span>
+            </div>
+        </section>
+        
+        <div class="container">
+            <section id="news" class="news-section">
+                <h2 class="section-title">Последние новости</h2>
+                <div class="news-grid">
+                    <article class="news-card">
+                        <div class="news-img">
+                            <img src="img/news/news.png" alt="Школьный турнир по шахматам">
+                        </div>
+                        <div class="news-content">
+                            <p class="news-date">06 февраля 2025</p>
+                            <h3 class="news-title">Скоро итоговое собеседование по русскому языку для девятиклассников</h3>
+                            <p class="news-excerpt">Итоговое собеседование по русскому языку является первым испытанием для девятиклассников, так как оно является допуском к государственной итоговой аттестации, важным шагом на пути к получению аттестата об основном общем образовании.</p>
+                        </div>
+                    </article>
+                    
+                    <article class="news-card">
+                        <div class="news-img">
+                            <img src="img/news/news2.png" alt="Выпускной вечер">
+                        </div>
+                        <div class="news-content">
+                            <p class="news-date">30 января 2025</p>
+                            <h3 class="news-title">11 класс, cтресс и пути его преодоления</h3>
+                            <p class="news-excerpt">Одиннадцатый класс – ответственный и напряженный период в жизни школьника. Подготовка к ЕГЭ, выбор будущей профессии, высокая учебная нагрузка и давление со стороны родителей и учителей могут вызывать сильный стресс.</p>
+                        </div>
+                    </article>
+                    
+                    <article class="news-card">
+                        <div class="news-img">
+                            <img src="img/news/news3.png" alt="Экологическая акция">
+                        </div>
+                        <div class="news-content">
+                            <p class="news-date">11 апреля 2025</p>
+                            <h3 class="news-title">Урок-лекция посвященный "Дню Космонавтики"</h3>
+                            <p class="news-excerpt">11 апреля в коррекционном классе был проведён урок-лекция посвящённый "Дню Космонавтики". Цель данного урока: познакомить детей с Днем космонавтики, первым полётом человека в космос и вызвать интерес к изучению космоса. Дети узнали, кто такой Юрий Гагарин и что такое космос. </p>
+                        </div>
+                    </article>
+
+                    <article class="news-card">
+                        <div class="news-img">
+                            <img src="img/news/news4.png" alt="Экологическая акция">
+                        </div>
+                        <div class="news-content">
+                            <p class="news-date">25 февраля 2025</p>
+                            <h3 class="news-title">СЕВЕРНАЯ ЗВЕЗДА</h3>
+                            <p class="news-excerpt">22 февраля в Вилюйске состоялся республиканский фестиваль "ЗИМА НАЧИНАЕТСЯ С ЯКУТИИ", в рамках которого прошел Всероссийский конкурс талантов "СЕВЕРНАЯ ЗВЕЗДА" </p>
+                        </div>
+                    </article>
+
+                    <article class="news-card">
+                        <div class="news-img">
+                            <img src="img/news/news5.png" alt="Экологическая акция">
+                        </div>
+                        <div class="news-content">
+                            <p class="news-date">06 декабря 2024</p>
+                            <h3 class="news-title">НПК "Мир наших увлечений"</h3>
+                            <p class="news-excerpt">6 декабря 2024 года в школе МБОУ «Кысыл-Сырская СОШ» состоялся I очный всероссийский конкурс исследовательских проектов младших школьников, посвящённый XX-летию улусной НПК «Мир наших увлечений». </p>
+                        </div>
+                    </article>
+
+                    <article class="news-card">
+                        <div class="news-img">
+                            <img src="img/news/news6.png" alt="Экологическая акция">
+                        </div>
+                        <div class="news-content">
+                            <p class="news-date">26 ноября 2024</p>
+                            <h3 class="news-title">"Молодные профессионалы"</h3>
+                            <p class="news-excerpt">Муниципальный отборочный этап соревнований "Молодые профессионалы" по компетенции "Преподавание в младших классах" </p>
+                        </div>
+                    </article>
+                </div>
+            </section>
+            
+            <section id="about" class="about-section">
+                <h2 class="section-title">О нашей школе</h2>
+                <p>Кысыл Сырская средняя общеобразовательная школа. За годы работы мы воспитали не одно поколение успешных выпускников, многие из которых стали известными деятелями науки, культуры и спорта.</p>
+                
+                <h3>Наши преимущества:</h3>
+                <ul>
+                    <li>Квалифицированный педагогический состав</li>
+                    <li>Современные учебные программы</li>
+                    <li>Развитая инфраструктура</li>
+                    <li>Широкий выбор кружков и секций</li>
+                    <li>Индивидуальный подход к каждому ученику</li>
+                </ul>
+            </section>
+        </div>
+    </main>
+    
+    <!-- Подвал сайта -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Учебное заведение</h3>
+                    <ul>
+                        <li><a href="#">История школы</a></li>
+                        <li><a href="#">Администрация</a></li>
+                        <li><a href="#">Педагогический состав</a></li>
+                        <li><a href="#">Достижения</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Учебный процесс</h3>
+                    <ul>
+                        <li><a href="#">Расписание</a></li>
+                        <li><a href="#">Учебные программы</a></li>
+                        <li><a href="#">Олимпиады</a></li>
+                        <li><a href="#">Внеклассная работа</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Контакты</h3>
+                    <div class="contact-info">
+                        <p><i>📌</i> Республика Саха (Якутия), Вилюйский улус (район), п.Кысыл-Сыр, ул. Интернациональная д. 1</p>
+                        <p><i>📞</i> +7 (41132) 20-450</p>
+                        <p><i>✉️</i> info@kysyl-syr-school.ru</p>
+                    </div>
+                    
+                    <div class="social-links">
+                        <a href="#" aria-label="ВКонтакте">VK</a>
+                        <a href="#" aria-label="Telegram">TG</a>
+                        <a href="#" aria-label="YouTube">YT</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2025 Кысыл-Сырская СОШ. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        // Мобильное меню
+        const menuBtn = document.querySelector('.mobile-menu-btn');
+        const nav = document.getElementById('main-nav');
+        
+        menuBtn.addEventListener('click', () => {
+            nav.classList.toggle('active');
+            menuBtn.innerHTML = nav.classList.contains('active') ? 
+                '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+        });
+
+        // Прокрутка шапки
+        const header = document.getElementById('main-header');
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+        
+        // Плавная прокрутка
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    // Закрываем мобильное меню если открыто
+                    if (nav.classList.contains('active')) {
+                        nav.classList.remove('active');
+                        menuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+                    }
+                    
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 90,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+         // Анимация элементов при загрузке
+         document.addEventListener('DOMContentLoaded', () => {
+            const logo = document.querySelector('.logo');
+            const navItems = document.querySelectorAll('nav ul li');
+            
+            logo.style.animation = 'fadeInDown 0.8s ease-out forwards';
+            
+            navItems.forEach((item, index) => {
+                item.style.animation = `fadeInDown 0.5s ease-out ${index * 0.1 + 0.3}s forwards`;
+                item.style.opacity = '0';
+            });
+        });
+        
+        // Слайдер
+        document.addEventListener('DOMContentLoaded', function() {
+            const slides = document.querySelectorAll('.slide');
+            const indicators = document.querySelectorAll('.indicator');
+            const prevBtn = document.querySelector('.prev-btn');
+            const nextBtn = document.querySelector('.next-btn');
+            let currentSlide = 0;
+            let slideInterval;
+            
+            // Инициализация слайдера
+            function initSlider() {
+                if (slides.length === 0) return;
+                
+                slides[currentSlide].classList.add('active');
+                indicators[currentSlide].classList.add('active');
+                
+                // Автопереключение слайдов каждые 5 секунд
+                slideInterval = setInterval(nextSlide, 5000);
+            }
+            
+            // Переключение на следующий слайд
+            function nextSlide() {
+                goToSlide((currentSlide + 1) % slides.length);
+            }
+            
+            // Переключение на предыдущий слайд
+            function prevSlide() {
+                goToSlide((currentSlide - 1 + slides.length) % slides.length);
+            }
+            
+            // Переход к конкретному слайду
+            function goToSlide(n) {
+                slides[currentSlide].classList.remove('active');
+                indicators[currentSlide].classList.remove('active');
+                
+                currentSlide = n;
+                
+                slides[currentSlide].classList.add('active');
+                indicators[currentSlide].classList.add('active');
+                
+                // Сброс таймера автопереключения
+                resetTimer();
+            }
+            
+            // Сброс таймера автопереключения
+            function resetTimer() {
+                clearInterval(slideInterval);
+                slideInterval = setInterval(nextSlide, 5000);
+            }
+            
+            // Обработчики событий
+            nextBtn.addEventListener('click', function() {
+                nextSlide();
+            });
+            
+            prevBtn.addEventListener('click', function() {
+                prevSlide();
+            });
+            
+            indicators.forEach((indicator, index) => {
+                indicator.addEventListener('click', function() {
+                    goToSlide(index);
+                });
+            });
+            
+            // Пауза при наведении на слайдер
+            const slider = document.querySelector('.slider-container');
+            slider.addEventListener('mouseenter', function() {
+                clearInterval(slideInterval);
+            });
+            
+            slider.addEventListener('mouseleave', function() {
+                resetTimer();
+            });
+            
+            // Инициализация
+            initSlider();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,1234 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Кысыл-Сырская СОШ - Для родителей</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=PT+Sans:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Общие стили */
+        :root {
+            --light-color: #FFFFFF;
+            --dark-color: #333333;
+            --gray-color: #F5F5F5;
+            --primary-color: #003366;
+            --secondary-color: #004080;
+            --accent-color: #4facfe;
+            --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: var(--dark-color);
+            background-color: var(--gray-color);
+            overflow-x: hidden;
+        }
+        
+        a {
+            text-decoration: none;
+            color: var(--secondary-color);
+            transition: var(--transition);
+        }
+        
+        a:hover {
+            color: var(--primary-color);
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        /* Шапка */
+        header {
+            background-color: rgba(0, 51, 102, 0.95);
+            color: var(--light-color);
+            padding: 12px 0;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            transition: var(--transition);
+        }
+        
+        header.scrolled {
+            padding: 8px 0;
+            background-color: rgba(0, 51, 102, 0.98);
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            z-index: 1001;
+        }
+        
+        .logo img {
+            height: 60px;
+            width: auto;
+            transition: var(--transition);
+        }
+        
+        .logo-text h1 {
+            font-family: 'PT Sans', sans-serif;
+            font-size: 1.3rem;
+            margin-bottom: 5px;
+            color: white;
+        }
+        
+        .logo-text p {
+            font-size: 0.8rem;
+            opacity: 0.9;
+            color: rgba(255, 255, 255, 0.8);
+        }
+        
+        /* Навигация */
+        nav ul {
+            display: flex;
+            list-style: none;
+            align-items: center;
+            margin: 0;
+            padding: 0;
+        }
+        
+        nav ul li {
+            margin-left: 20px;
+            position: relative;
+        }
+    
+        nav ul li a {
+            color: var(--light-color);
+            font-weight: 500;
+            padding: 8px 0;
+            display: flex;
+            align-items: center;
+            position: relative;
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+        
+        nav ul li a:hover {
+            opacity: 1;
+            color: var(--light-color); /* Фиксируем цвет при наведении */
+        }
+        
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--light-color);
+            transition: var(--transition);
+        }
+    
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+        
+        nav ul li a i {
+            margin-right: 6px;
+            font-size: 1rem;
+        }
+    
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--light-color);
+            font-size: 1.5rem;
+            cursor: pointer;
+            z-index: 1001;
+            transition: var(--transition);
+            padding: 5px;
+        }
+        
+        .mobile-menu-btn:hover {
+            opacity: 0.8;
+        }
+
+        /* Основной контент */
+        main {
+            padding: 20px 0;
+            min-height: calc(100vh - 160px);
+            margin-top: 84px;
+        }
+        
+        /* Стили для страницы "Для родителей" */
+        .page-header {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+            margin-bottom: 40px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .page-header h1 {
+            font-family: 'PT Sans', sans-serif;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .page-header p {
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+            opacity: 0.9;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .page-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('img/pattern.png') repeat;
+            opacity: 0.1;
+            z-index: 0;
+        }
+        
+        .breadcrumbs {
+            padding: 15px 0;
+            font-size: 0.9rem;
+            color: #666;
+        }
+        
+        .breadcrumbs a {
+            color: var(--secondary-color);
+        }
+        
+        .breadcrumbs a:hover {
+            text-decoration: underline;
+        }
+        
+        .breadcrumbs span {
+            margin: 0 5px;
+            color: #999;
+        }
+        
+        .section-title {
+            font-family: 'PT Sans', sans-serif;
+            color: var(--secondary-color);
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 80px;
+            height: 3px;
+            background-color: var(--primary-color);
+        }
+        
+        .section-description {
+            margin-bottom: 30px;
+            line-height: 1.7;
+        }
+        
+        .parents-section {
+            margin-bottom: 50px;
+        }
+        
+        .info-cards {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+        gap: 30px;
+        margin: 40px 0;
+    }
+
+    .info-card {
+        background: white;
+        border-radius: 8px;
+        padding: 30px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        transition: var(--transition);
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+    }
+
+    .info-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    }
+
+    .info-card h3 {
+        font-family: 'PT Sans', sans-serif;
+        color: var(--secondary-color);
+        margin-bottom: 20px;
+        display: flex;
+        align-items: center;
+    }
+
+    .info-card h3 i {
+        margin-right: 15px;
+        color: var(--accent-color);
+        font-size: 1.5rem;
+    }
+
+    .info-card p {
+        margin-bottom: 15px;
+        flex-grow: 0;
+    }
+
+    .info-card ul {
+        list-style: none;
+        margin: 15px 0;
+        flex-grow: 1;
+    }
+
+    .info-card ul li {
+        margin-bottom: 12px;
+        padding-left: 30px;
+        position: relative;
+    }
+
+    .info-card ul li::before {
+        content: '\f00c';
+        font-family: 'Font Awesome 6 Free';
+        font-weight: 900;
+        position: absolute;
+        left: 0;
+        color: var(--accent-color);
+    }
+
+    .info-card .btn {
+        margin-top: auto;
+        align-self: flex-start;
+    }
+        
+        .faq-section {
+            background: white;
+            border-radius: 8px;
+            padding: 40px;
+            margin: 50px 0;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .faq-item {
+            margin-bottom: 25px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 25px;
+        }
+        
+        .faq-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        
+        .faq-question {
+            font-family: 'PT Sans', sans-serif;
+            font-size: 1.2rem;
+            color: var(--secondary-color);
+            margin-bottom: 15px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .faq-question::after {
+            content: '\f078';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            transition: var(--transition);
+        }
+        
+        .faq-question.active::after {
+            transform: rotate(180deg);
+        }
+        
+        .faq-answer {
+            display: none;
+            line-height: 1.7;
+            padding-right: 30px;
+        }
+        
+        .faq-answer.active {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+        
+        .documents-section {
+            margin: 50px 0;
+        }
+        
+        .document-list {
+            margin-top: 30px;
+        }
+        
+        .document-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+        }
+        
+        .document-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .document-info {
+            display: flex;
+            align-items: center;
+        }
+        
+        .document-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--accent-color);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            margin-right: 20px;
+        }
+        
+        .document-details h4 {
+            font-family: 'PT Sans', sans-serif;
+            margin-bottom: 5px;
+            color: var(--secondary-color);
+        }
+        
+        .document-details p {
+            font-size: 0.9rem;
+            color: #666;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 5px;
+            font-weight: 500;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            text-align: center;
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            color: white;
+        }
+        
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+        }
+        
+        .btn-outline:hover {
+            background: var(--primary-color);
+            color: white;
+        }
+        
+        .text-center {
+            text-align: center;
+        }
+        
+        .mt-4 {
+            margin-top: 40px;
+        }
+        
+        .contact-form {
+            background: white;
+            border-radius: 8px;
+            padding: 40px;
+            margin: 50px 0;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .form-group {
+            margin-bottom: 25px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: 'Roboto', sans-serif;
+            transition: var(--transition);
+        }
+        
+        .form-control:focus {
+            border-color: var(--accent-color);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(79, 172, 254, 0.2);
+        }
+        
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        /* Подвал */
+        footer {
+            background: linear-gradient(135deg, #002244 0%, #003366 100%);
+            color: var(--light-color);
+            padding: 60px 0 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, #4facfe 0%, #00f2fe 100%);
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-column {
+            position: relative;
+            z-index: 1;
+        }
+
+        .footer-column h3 {
+            font-family: 'PT Sans', sans-serif;
+            font-size: 1.4rem;
+            margin-bottom: 25px;
+            position: relative;
+            display: inline-block;
+            color: white;
+        }
+
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: linear-gradient(90deg, #4facfe 0%, #00f2fe 100%);
+            border-radius: 3px;
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 12px;
+            position: relative;
+            padding-left: 15px;
+        }
+
+        .footer-column ul li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: #4facfe;
+            font-size: 1.2rem;
+            line-height: 1;
+        }
+
+        .footer-column ul li a {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.95rem;
+            transition: var(--transition);
+            display: inline-block;
+            padding: 3px 0;
+        }
+
+        .footer-column ul li a:hover {
+            color: white;
+            transform: translateX(5px);
+        }
+
+        .contact-info p {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: flex-start;
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        .contact-info i {
+            margin-right: 12px;
+            font-size: 1.1rem;
+            color: #4facfe;
+            min-width: 20px;
+            text-align: center;
+            margin-top: 3px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 25px;
+        }
+
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 42px;
+            height: 42px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            transition: var(--transition);
+            font-size: 1.1rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .social-links a::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .social-links a:hover::before {
+            opacity: 1;
+        }
+
+        .social-links a i {
+            position: relative;
+            z-index: 1;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        /* Декоративные элементы */
+        footer::after {
+            content: '';
+            position: absolute;
+            bottom: -50px;
+            right: -50px;
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, rgba(79, 172, 254, 0.15) 0%, rgba(0, 0, 0, 0) 70%);
+            z-index: 0;
+        }
+        
+        /* Анимации */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Адаптивность */
+        @media (max-width: 992px) {
+            .header-container {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .logo {
+                margin-bottom: 15px;
+                justify-content: center;
+            }
+
+            .logo img {
+                height: 60px;
+            }
+
+            .logo-text h1 {
+                font-size: 1.4rem;
+            }
+            
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            nav ul li {
+                margin-left: 15px;
+            }
+            
+            .page-header h1 {
+                font-size: 2rem;
+            }
+            
+            .info-cards {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            nav {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 280px;
+                height: 100vh;
+                background: rgba(0, 51, 102, 0.98);
+                backdrop-filter: blur(10px);
+                -webkit-backdrop-filter: blur(10px);
+                padding: 100px 30px 30px;
+                transition: var(--transition);
+                box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+                z-index: 1000;
+            }
+            
+            nav.active {
+                right: 0;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            nav ul li {
+                margin: 0 0 25px;
+                width: 100%;
+            }
+
+            nav ul li a {
+                padding: 10px 0;
+                font-size: 1.1rem;
+            }
+            
+            .contact-form {
+                padding: 30px 20px;
+            }
+
+            .logo img {
+                height: 55px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .logo {
+                flex-direction: row;
+            }
+            
+            .logo img {
+                height: 50px;
+            }
+
+            .logo-text h1 {
+                font-size: 1.3rem;
+            }
+
+            nav {
+                width: 100%;
+            }
+            
+            .section-title {
+                font-size: 1.5rem;
+            }
+            
+            .page-header {
+                padding: 40px 0;
+            }
+            
+            .page-header h1 {
+                font-size: 1.8rem;
+            }
+            
+            .document-item {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .document-info {
+                margin-bottom: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Шапка сайта -->
+    <header id="main-header">
+        <div class="container header-container">
+            <div class="logo">
+                <img src="img/logo.png" alt="Логотип Кысыл Сырской СОШ">
+                <div class="logo-text">
+                    <h1>Кысыл-Сырская СОШ</h1>
+                    <p>Официальный сайт образовательного учреждения</p>
+                </div>
+            </div>
+            
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <nav id="main-nav">
+                <ul>
+                    <li><a href="index.html"><i class="fas fa-home"></i> Главная</a></li>
+                    <li><a href="educational.html"><i class="fas fa-info-circle"></i> Учебное заведение</a></li>
+                    <li><a href="education.html"><i class="fas fa-book"></i> Учебный процесс</a></li>
+                    <li><a href="parents.html" class="active"><i class="fas fa-user-friends"></i> Для родителей</a></li>
+                    <li><a href="students.html"><i class="fas fa-graduation-cap"></i> Для учеников</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <!-- Основное содержимое -->
+    <main>
+        <!-- Шапка страницы -->
+        <section class="page-header">
+            <div class="container">
+                <h1>Для родителей</h1>
+                <p>Полезная информация и документы для родителей наших учеников</p>
+            </div>
+        </section>
+        
+        <div class="container">
+            <!-- Хлебные крошки -->
+            <div class="breadcrumbs">
+                <a href="index.html">Главная</a>
+                <span>/</span>
+                <a href="parents.html">Для родителей</a>
+            </div>
+            
+            <!-- Основной контент -->
+            <section class="parents-section">
+                <h2 class="section-title">Полезная информация</h2>
+                <p class="section-description">На этой странице собраны все необходимые материалы и рекомендации для родителей наших учеников</p>
+                
+                <div class="info-cards">
+                    <div class="info-card">
+                        <h3><i class="fas fa-calendar-alt"></i> Школьные мероприятия</h3>
+                        <p>Узнайте о предстоящих событиях и мероприятиях в нашей школе:</p>
+                        <ul>
+                            <li>Родительские собрания</li>
+                            <li>Творческие вечера</li>
+                            <li>Спортивные соревнования</li>
+                            <li>Выставки и конкурсы</li>
+                            <li>Выпускные вечера</li>
+                        </ul>
+                        <a href="#" class="btn mt-4">Календарь мероприятий</a>
+                    </div>
+                    
+                    <div class="info-card">
+                        <h3><i class="fas fa-user-graduate"></i> Подготовка к школе</h3>
+                        <p>Рекомендации по подготовке ребенка к школе:</p>
+                        <ul>
+                            <li>Список необходимых принадлежностей</li>
+                            <li>Режим дня первоклассника</li>
+                            <li>Психологическая адаптация</li>
+                            <li>Развивающие занятия</li>
+                            <li>Часто задаваемые вопросы</li>
+                        </ul>
+                        <a href="#" class="btn mt-4">Подробнее</a>
+                    </div>
+                    
+                    <div class="info-card">
+                        <h3><i class="fas fa-heart"></i> Психологическая поддержка</h3>
+                        <p>Советы школьного психолога для родителей:</p>
+                        <ul>
+                            <li>Как помочь ребенку с учебой</li>
+                            <li>Разрешение конфликтных ситуаций</li>
+                            <li>Мотивация к обучению</li>
+                            <li>Профориентация подростков</li>
+                            <li>Эмоциональная поддержка</li>
+                        </ul>
+                        <a href="#" class="btn mt-4">Консультация психолога</a>
+                    </div>
+                    
+                    <div class="info-card">
+                        <h3><i class="fas fa-utensils"></i> Школьное питание</h3>
+                        <p>Вся информация об организации питания в школе:</p>
+                        <ul>
+                            <li>Меню на текущую неделю</li>
+                            <li>График питания по классам</li>
+                            <li>Льготное питание</li>
+                            <li>Родительский контроль</li>
+                            <li>Контакты ответственных</li>
+                        </ul>
+                        <a href="#" class="btn mt-4">Подробнее о питании</a>
+                    </div>
+                
+                    <div class="info-card">
+                        <h3><i class="fas fa-book-open"></i> Внеклассное чтение</h3>
+                        <p>Рекомендованные книги для учащихся разных возрастов:</p>
+                        <ul>
+                            <li>Список литературы на лето</li>
+                            <li>Книги для начальной школы</li>
+                            <li>Классика для подростков</li>
+                            <li>Современная детская литература</li>
+                            <li>Методики развития читательского интереса</li>
+                        </ul>
+                        <a href="#" class="btn mt-4">Смотреть списки</a>
+                    </div>
+                    
+                    <div class="info-card">
+                        <h3><i class="fas fa-bus"></i> Школьный транспорт</h3>
+                        <p>Информация о школьных автобусах и транспорте:</p>
+                        <ul>
+                            <li>Маршруты и расписание</li>
+                            <li>Правила поведения в автобусе</li>
+                            <li>Контакты ответственных</li>
+                            <li>Запись на школьный автобус</li>
+                            <li>Безопасность перевозок</li>
+                        </ul>
+                        <a href="#" class="btn mt-4">Узнать подробности</a>
+                    </div>
+                </div>
+                
+                <!-- Документы для родителей -->
+                <div class="documents-section">
+                    <h2 class="section-title">Документы для родителей</h2>
+                    <p class="section-description">Официальные документы, формы заявлений и полезные материалы</p>
+                    
+                    <div class="document-list">
+                        <div class="document-item">
+                            <div class="document-info">
+                                <div class="document-icon">
+                                    <i class="fas fa-file-alt"></i>
+                                </div>
+                                <div class="document-details">
+                                    <h4>Правила внутреннего распорядка</h4>
+                                    <p>Ознакомьтесь с правилами поведения учащихся в школе</p>
+                                </div>
+                            </div>
+                            <a href="#" class="btn btn-outline">Скачать</a>
+                        </div>
+                        
+                        <div class="document-item">
+                            <div class="document-info">
+                                <div class="document-icon">
+                                    <i class="fas fa-file-contract"></i>
+                                </div>
+                                <div class="document-details">
+                                    <h4>Договор об образовании</h4>
+                                    <p>Образец договора между школой и родителями</p>
+                                </div>
+                            </div>
+                            <a href="#" class="btn btn-outline">Скачать</a>
+                        </div>
+                        
+                        <div class="document-item">
+                            <div class="document-info">
+                                <div class="document-icon">
+                                    <i class="fas fa-file-medical"></i>
+                                </div>
+                                <div class="document-details">
+                                    <h4>Медицинская карта</h4>
+                                    <p>Форма для предоставления медицинских сведений</p>
+                                </div>
+                            </div>
+                            <a href="#" class="btn btn-outline">Скачать</a>
+                        </div>
+                        
+                        <div class="document-item">
+                            <div class="document-info">
+                                <div class="document-icon">
+                                    <i class="fas fa-file-signature"></i>
+                                </div>
+                                <div class="document-details">
+                                    <h4>Заявление на льготное питание</h4>
+                                    <p>Форма заявления для получения льготного питания</p>
+                                </div>
+                            </div>
+                            <a href="#" class="btn btn-outline">Скачать</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Часто задаваемые вопросы -->
+                <div class="faq-section">
+                    <h2 class="section-title">Часто задаваемые вопросы</h2>
+                    <p class="section-description">Ответы на самые популярные вопросы родителей</p>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">Как записать ребенка в школу?</div>
+                        <div class="faq-answer">
+                            <p>Запись в первый класс осуществляется через портал Госуслуг или лично в школе. Необходимо предоставить следующие документы: заявление, свидетельство о рождении ребенка, документ, удостоверяющий личность родителя, медицинскую карту. Подробную информацию можно получить в разделе "Прием в школу" или у секретаря.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">Какие документы нужны для льготного питания?</div>
+                        <div class="faq-answer">
+                            <p>Для оформления льготного питания необходимо предоставить: заявление, копию паспорта родителя, копию свидетельства о рождении ребенка, документы, подтверждающие право на льготу (справка о доходах, удостоверение многодетной семьи и т.д.). Полный перечень документов можно уточнить у классного руководителя.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">Как контролировать успеваемость ребенка?</div>
+                        <div class="faq-answer">
+                            <p>В нашей школе используется электронный дневник, доступ к которому предоставляется родителям после регистрации. Также вы можете регулярно общаться с классным руководителем, посещать родительские собрания и получать консультации учителей-предметников.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">Как организована безопасность в школе?</div>
+                        <div class="faq-answer">
+                            <p>Школа оборудована системой видеонаблюдения, работает охрана. Вход в здание осуществляется по пропускам. Регулярно проводятся тренировки по эвакуации. Все сотрудники прошли обучение по технике безопасности и оказанию первой помощи.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Форма обратной связи -->
+                <div class="contact-form">
+                    <h2 class="section-title">Задайте вопрос</h2>
+                    <p class="section-description">Если вы не нашли ответ на свой вопрос, заполните форму ниже</p>
+                    
+                    <form id="parent-form">
+                        <div class="form-group">
+                            <label for="name">Ваше имя *</label>
+                            <input type="text" id="name" class="form-control" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Электронная почта *</label>
+                            <input type="email" id="email" class="form-control" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone">Номер телефона</label>
+                            <input type="tel" id="phone" class="form-control">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="question">Ваш вопрос *</label>
+                            <textarea id="question" class="form-control" required></textarea>
+                        </div>
+                        
+                        <div class="form-group">
+                            <button type="submit" class="btn">Отправить вопрос</button>
+                        </div>
+                    </form>
+                </div>
+            </section>
+        </div>
+    </main>
+    
+    <!-- Подвал сайта -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Учебное заведение</h3>
+                    <ul>
+                        <li><a href="#">История школы</a></li>
+                        <li><a href="#">Администрация</a></li>
+                        <li><a href="#">Педагогический состав</a></li>
+                        <li><a href="#">Достижения</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Учебный процесс</h3>
+                    <ul>
+                        <li><a href="#">Расписание</a></li>
+                        <li><a href="#">Учебные программы</a></li>
+                        <li><a href="#">Олимпиады</a></li>
+                        <li><a href="#">Внеклассная работа</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Контакты</h3>
+                    <div class="contact-info">
+                        <p><i>📌</i> Республика Саха (Якутия), Вилюйский улус (район), п.Кысыл-Сыр, ул. Интернациональная д. 1</p>
+                        <p><i>📞</i> +7 (41132) 20-450</p>
+                        <p><i>✉️</i> info@kysyl-syr-school.ru</p>
+                    </div>
+                    
+                    <div class="social-links">
+                        <a href="#" aria-label="ВКонтакте">VK</a>
+                        <a href="#" aria-label="Telegram">TG</a>
+                        <a href="#" aria-label="YouTube">YT</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2025 Кысыл-Сырская СОШ. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        // Мобильное меню
+        const menuBtn = document.querySelector('.mobile-menu-btn');
+        const nav = document.getElementById('main-nav');
+        
+        menuBtn.addEventListener('click', () => {
+            nav.classList.toggle('active');
+            menuBtn.innerHTML = nav.classList.contains('active') ? 
+                '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+        });
+
+        // Прокрутка шапки
+        const header = document.getElementById('main-header');
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+        
+        // Плавная прокрутка
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    // Закрываем мобильное меню если открыто
+                    if (nav.classList.contains('active')) {
+                        nav.classList.remove('active');
+                        menuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+                    }
+                    
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 90,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Анимация элементов при загрузке
+        document.addEventListener('DOMContentLoaded', () => {
+            const logo = document.querySelector('.logo');
+            const navItems = document.querySelectorAll('nav ul li');
+            
+            logo.style.animation = 'fadeInDown 0.8s ease-out forwards';
+            
+            navItems.forEach((item, index) => {
+                item.style.animation = `fadeInDown 0.5s ease-out ${index * 0.1 + 0.3}s forwards`;
+                item.style.opacity = '0';
+            });
+            
+            // FAQ аккордеон
+            const faqQuestions = document.querySelectorAll('.faq-question');
+            
+            faqQuestions.forEach(question => {
+                question.addEventListener('click', () => {
+                    const answer = question.nextElementSibling;
+                    const isActive = question.classList.contains('active');
+                    
+                    // Закрываем все ответы
+                    faqQuestions.forEach(q => {
+                        q.classList.remove('active');
+                        q.nextElementSibling.classList.remove('active');
+                    });
+                    
+                    // Открываем текущий, если был закрыт
+                    if (!isActive) {
+                        question.classList.add('active');
+                        answer.classList.add('active');
+                    }
+                });
+            });
+            
+            // Обработка формы
+            const parentForm = document.getElementById('parent-form');
+            
+            if (parentForm) {
+                parentForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    // Здесь можно добавить AJAX-отправку формы
+                    alert('Ваш вопрос отправлен! Мы свяжемся с вами в ближайшее время.');
+                    this.reset();
+                });
+            }
+        });
+    </script>
+</body>
+</html>
